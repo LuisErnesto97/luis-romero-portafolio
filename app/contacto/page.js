@@ -61,7 +61,7 @@ export default function contacto() {
       <div className="">
         <div>
           <div className={color ? styles.navbarScroll : styles.navbar}>
-            <Link href="/perfil">
+            <Link href="/">
               <>
                 <div className={styles.briefCaseIcon}>
                   <b>Luis Ernesto Romero</b>
@@ -70,7 +70,7 @@ export default function contacto() {
             </Link>
             <>
               <div className={styles.navbarlist}>
-                <a href="/perfil" className={styles.navbarlisttag}>
+                <a href="/" className={styles.navbarlisttag}>
                   Perfil
                 </a>
                 <Link href="/contacto" className={styles.navbarlisttag}>

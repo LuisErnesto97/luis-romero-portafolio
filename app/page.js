@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "@/app/page.module.css";
 import Head from "next/head";
 import sombrero from "/app/sombrero.png";
-import certificado from "../certificado.png";
+import certificado from "/app/certificado.png";
 import shape from "/app/shape.png";
 
 import Slider from "react-slick";
@@ -93,7 +93,7 @@ export default function Home() {
       <div className="">
         <div>
           <div className={color ? styles.navbarScroll : styles.navbar}>
-            <Link href="/perfil">
+            <Link href="/">
               <>
                 <div className={styles.briefCaseIcon}>
                   <b>Luis Ernesto Romero</b>
@@ -102,7 +102,7 @@ export default function Home() {
             </Link>
             <>
               <div className={styles.navbarlist}>
-                <a href="/perfil" className={styles.navbarlisttag}>
+                <a href="/" className={styles.navbarlisttag}>
                   Perfil
                 </a>
                 <Link href="/contacto" className={styles.navbarlisttag}>
