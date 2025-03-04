@@ -1,0 +1,338 @@
+/*-------NAVBAR--------*/
+
+.navbar {
+  background: rgb(228, 225, 225);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  color: white;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 8;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.navbarScroll {
+  background: rgb(216, 216, 216);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  color: black;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 8;
+}
+.navbarlist {
+  display: flex;
+}
+.navbarlisttag {
+  margin: 15px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+.navbarScroll .navbarlisttag {
+  margin: 15px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+.navbarScroll .navbarlisttag::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Grosor de la línea */
+  background-color: #000000; /* Color del borde inferior */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out; /* Transición para suavizar el efecto */
+}
+.navbarScroll .navbarlisttag:hover::before {
+  width: 100%; /* Ancho completo al hacer hover */
+}
+.navbarlisttag::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px; /* Grosor de la línea */
+  background-color: black; /* Color del borde inferior */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out; /* Transición para suavizar el efecto */
+}
+.navbarlisttag:hover::before {
+  width: 100%; /* Ancho completo al hacer hover */
+}
+
+/*------------PRIMERA PARTE -------------*/
+.primeraparte {
+  height: auto;
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  top: 80px;
+  width: 100%;
+  height: 350px;
+  background: rgb(203, 203, 203);
+  background: linear-gradient(
+    90deg,
+    rgba(203, 203, 203, 1) 0%,
+    rgba(255, 255, 255, 1) 35%,
+    rgba(203, 203, 203, 1) 100%
+  );
+  border-bottom: 3px solid black; /* Borde sutil */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.luisromero {
+  font-size: 50px;
+}
+.acerdemi {
+  width: 80%;
+  text-align: justify;
+  margin-top: 20px;
+}
+.shape {
+  position: absolute;
+  right: -30px;
+  top: -100px;
+}
+.backgrounProfileImage {
+  background: url(../app/perfil.jpg);
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  border-radius: 50%;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  position: relative;
+  top: 0px;
+  border: 4px solid white;
+  z-index: 2;
+}
+.segundaparte {
+  position: absolute;
+  top: 430px;
+  background: rgb(245, 228, 235);
+  background: radial-gradient(
+    circle,
+    rgba(245, 228, 235, 1) 0%,
+    rgba(204, 227, 254, 1) 100%
+  );
+  border-bottom: 2px solid black;
+
+  width: 100%;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.segundapartetitulo {
+  font-size: 50px;
+  color: black;
+}
+.grupotitulo {
+  display: flex;
+  justify-content: space-between;
+}
+.universidad {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.sombrero {
+  width: 150px;
+  height: 150px;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  position: relative;
+  right: 80px;
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.sombreron {
+  position: relative;
+  top: 15px;
+}
+.terceraparte {
+  position: absolute;
+  top: 833px;
+  background: rgb(245, 255, 199);
+  background: radial-gradient(
+    circle,
+    rgba(245, 255, 199, 1) 0%,
+    rgba(220, 222, 223, 1) 100%
+  );
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+  border-bottom: 2px solid black;
+}
+.certifadoBackground {
+  width: 150px;
+  height: 150px;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  position: relative;
+  right: 80px;
+  border-radius: 50%;
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.certificado {
+  position: relative;
+  top: 0px;
+}
+.cuartaparte {
+  position: absolute;
+  top: 1237px;
+  height: 750px;
+  background: rgb(220, 218, 255);
+  background: radial-gradient(
+    circle,
+    rgba(220, 218, 255, 1) 0%,
+    rgba(220, 222, 223, 1) 100%
+  );
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+.sliderImageContacto {
+  width: auto;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carouselcontactoimage {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Ensure the container takes the full height */
+}
+.imageTituloContacto {
+  margin: 0 auto;
+}
+.quintaparte {
+  padding-top: 20px;
+  position: absolute;
+  top: 1987px;
+  background: rgb(200, 255, 216);
+  background: radial-gradient(
+    circle,
+    rgba(200, 255, 216, 1) 0%,
+    rgba(220, 222, 223, 1) 100%
+  );
+  width: 100%;
+  padding-left: 20px;
+  height: 600px;
+  border-bottom: 2px solid black;
+}
+.tituloUniversidad {
+  text-align: justify;
+}
+.proyectoSlider {
+  width: 600px;
+  margin-right: 10px;
+}
+.imageTituloContacto {
+  border: 6px solid white;
+}
+.sextaparte {
+  padding-top: 20px;
+  position: absolute;
+  top: 2590px;
+  background: rgb(255, 230, 200);
+  background: radial-gradient(
+    circle,
+    rgba(255, 230, 200, 1) 0%,
+    rgba(220, 222, 223, 1) 100%
+  );
+  width: 100%;
+  padding-left: 20px;
+  height: 620px;
+  border-bottom: 2px solid black;
+}
+.septimaParte {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 3210px;
+  width: 100%;
+  height: 500px;
+}
+.blandas {
+  width: 50%;
+  padding-left: 20px;
+  padding-top: 20px;
+  font-size: 15px;
+  border-right: 2px solid black;
+  position: relative;
+}
+.duras {
+  width: 50%;
+  font-size: 15px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.puzzle {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+.octavaparte {
+  position: absolute;
+  top: 3710px;
+  background: black;
+  width: 100%;
+  height: 80px;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+}
+.contacto {
+  position: absolute;
+  top: 120px;
+  font-size: 30px;
+  padding-left: 20px;
+  width: 100%;
+}
+.SliderContacto {
+  width: 100%;
+  position: absolute;
+  top: 300px;
+}
+.imageSliderContacto {
+  margin: 45px auto;
+}
+.Contactoparte {
+  position: absolute;
+  top: 1200px;
+  background: black;
+  width: 100%;
+  height: 80px;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+}
