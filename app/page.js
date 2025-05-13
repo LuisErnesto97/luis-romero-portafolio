@@ -18,9 +18,8 @@ export default function Home() {
   const [proyectos, setProyectos] = useState([]);
   const [experiencia, setExperiencia] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
-
   const [color, setColor] = useState(false);
-
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     setImages([
       "/Titulo Bachillerato.png",
@@ -58,20 +57,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 500) {
-        setColor(true);
-      } else {
-        setColor(false);
-      }
+    const changeColor = () => {
+      setColor(window.scrollY >= 90);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener when component is unmounted
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", changeColor);
+    return () => window.removeEventListener("scroll", changeColor);
   }, []);
 
   useEffect(() => {
@@ -90,54 +81,65 @@ export default function Home() {
 
   return (
     <div>
-      <div className="">
-        <div>
-          <div className={color ? styles.navbarScroll : styles.navbar}>
-            <Link href="/">
-              <>
-                <div className={styles.briefCaseIcon}>
-                  <b>Luis Ernesto Romero</b>
-                </div>
-              </>
+      <div>
+        <div className={color ? styles.navbarScroll : styles.navbar}>
+          <Link href="/">
+            <div className={styles.briefCaseIcon}>
+              <b>Luis Ernesto Romero</b>
+            </div>
+          </Link>
+
+          {/* Botón hamburguesa */}
+          <div
+            className={styles.menuIcon}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+          </div>
+
+          {/* Menú de navegación */}
+          <div
+            className={`${styles.navbarlist} ${
+              menuOpen ? styles.showMenu : styles.hideMenu
+            }`}
+          >
+            <a href="/" className={styles.navbarlisttag}>
+              Perfil
+            </a>
+            <Link href="/contacto" className={styles.navbarlisttag}>
+              Contacto
             </Link>
-            <>
-              <div className={styles.navbarlist}>
-                <a href="/" className={styles.navbarlisttag}>
-                  Perfil
-                </a>
-                <Link href="/contacto" className={styles.navbarlisttag}>
-                  Contacto
-                </Link>
-              </div>
-            </>
           </div>
         </div>
       </div>
-      <div className={styles.primeraparte}>
-        <div className="">
-          <Slide direction="left">
-            <h1 className={styles.luisromero}>Luis Ernesto Romero </h1>
-          </Slide>
-          <Slide direction="left">
-            <h2>Licenciatura en Administración de Empresas</h2>
-          </Slide>
-          <Slide direction="left">
-            <p className={styles.acerdemi}>
-              Soy apasionado por las tecnologías de la información y el análisis
-              financiero. Soy una persona creativa, comunicativa e innovadora.
-              Mi objetivo es seguir creciendo en el campo administrativo,
-              aprender continuamente y contribuir al éxito de una empresa con mi
-              experiencia y habilidades.
-            </p>
-          </Slide>
+      <Slide className={styles.primeraparte} direction="left">
+        <div className={styles.glassCard}>
+          <div>
+            <div>
+              <h1 className={styles.luisromero}>Luis Ernesto Romero </h1>
+            </div>
+            <div>
+              <h2 className={styles.tituloCarrera}>
+                Licenciatura en Administración de Empresas
+              </h2>
+            </div>
+            <div>
+              <p className={styles.acerdemi}>
+                Soy apasionado por las tecnologías de la información y el
+                análisis financiero. Soy una persona creativa, comunicativa e
+                innovadora. Mi objetivo es seguir creciendo en el campo
+                administrativo, aprender continuamente y contribuir al éxito de
+                una empresa con mi experiencia y habilidades.
+              </p>
+            </div>
+          </div>
+          <div className={styles.profileDesign}>
+            <div className={styles.backgrounProfileImage}></div>
+          </div>
         </div>
-        <div className="profileDesign">
-          <div className={styles.backgrounProfileImage}></div>
-        </div>
-        <div className={styles.shape}>
-          <Image src={shape} width={500} height={450} alt="" />
-        </div>
-      </div>
+      </Slide>
       <div className={styles.segundaparte}>
         <Slide direction="left">
           {" "}

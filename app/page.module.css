@@ -1,338 +1,507 @@
-/*-------NAVBAR--------*/
-
+/* Navbar base */
 .navbar {
-  background: rgb(228, 225, 225);
-  height: 80px;
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  color: white;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  z-index: 8;
+  padding: 1rem 2rem;
+  background: #f1f1f1;
+  position: fixed;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  z-index: 100;
+  transition: box-shadow 0.3s;
+  box-shadow: none;
+  top: 0;
+  border-bottom: 1px solid lightgray;
 }
+
 .navbarScroll {
-  background: rgb(216, 216, 216);
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  color: black;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  z-index: 8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #f8f8f8;
 }
+
+.briefCaseIcon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+}
+
+.menuIcon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menuIcon .bar {
+  width: 28px;
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Navbar links */
 .navbarlist {
   display: flex;
+  gap: 2rem;
+  align-items: center;
 }
+
 .navbarlisttag {
-  margin: 15px;
-  color: black;
+  color: #1a1a1a;
   text-decoration: none;
-  position: relative;
-  cursor: pointer;
-}
-.navbarScroll .navbarlisttag {
-  margin: 15px;
-  color: black;
-  text-decoration: none;
-  position: relative;
-  cursor: pointer;
-}
-.navbarScroll .navbarlisttag::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px; /* Grosor de la línea */
-  background-color: #000000; /* Color del borde inferior */
-  bottom: 0;
-  left: 0;
-  transition: width 0.3s ease-in-out; /* Transición para suavizar el efecto */
-}
-.navbarScroll .navbarlisttag:hover::before {
-  width: 100%; /* Ancho completo al hacer hover */
-}
-.navbarlisttag::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px; /* Grosor de la línea */
-  background-color: black; /* Color del borde inferior */
-  bottom: 0;
-  left: 0;
-  transition: width 0.3s ease-in-out; /* Transición para suavizar el efecto */
-}
-.navbarlisttag:hover::before {
-  width: 100%; /* Ancho completo al hacer hover */
+  font-size: 1.1rem;
+  transition: color 0.2s;
 }
 
-/*------------PRIMERA PARTE -------------*/
+.navbarlisttag:hover {
+  color: #0070f3;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .navbarlist {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: right 0.3s, opacity 0.3s;
+    gap: 1.5rem;
+    z-index: 99;
+  }
+  .hideMenu {
+    right: -220px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .showMenu {
+    right: 0;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .menuIcon {
+    display: flex;
+  }
+}
+
+/* Modern glass effect for the card */
+.glassCard {
+  background: rgba(233, 233, 233, 0.18);
+  border-radius: 24px;
+  border: 1.5px solid lightgray;
+  padding: 2.5rem 2.5rem;
+  align-items: center;
+  width: 100%;
+  transition: box-shadow 0.3s;
+}
+
 .primeraparte {
-  height: auto;
   display: flex;
-  position: absolute;
-  justify-content: space-between;
-  top: 80px;
-  width: 100%;
-  height: 350px;
-  background: rgb(203, 203, 203);
-  background: linear-gradient(
-    90deg,
-    rgba(203, 203, 203, 1) 0%,
-    rgba(255, 255, 255, 1) 35%,
-    rgba(203, 203, 203, 1) 100%
-  );
-  border-bottom: 3px solid black; /* Borde sutil */
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  padding: 2.5rem 2rem;
+  background: none;
+  margin-top: 90px;
 }
 
-.luisromero {
-  font-size: 50px;
-}
-.acerdemi {
-  width: 80%;
-  text-align: justify;
-  margin-top: 20px;
-}
-.shape {
-  position: absolute;
-  right: -30px;
-  top: -100px;
-}
-.backgrounProfileImage {
-  background: url(../app/perfil.jpg);
-  width: 300px;
-  height: 300px;
-  background-size: cover;
-  border-radius: 50%;
-  display: flex;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  position: relative;
-  top: 0px;
-  border: 4px solid white;
-  z-index: 2;
-}
-.segundaparte {
-  position: absolute;
-  top: 430px;
-  background: rgb(245, 228, 235);
-  background: radial-gradient(
-    circle,
-    rgba(245, 228, 235, 1) 0%,
-    rgba(204, 227, 254, 1) 100%
-  );
-  border-bottom: 2px solid black;
-
-  width: 100%;
-  padding-left: 20px;
-  padding-top: 20px;
-}
-.segundapartetitulo {
-  font-size: 50px;
-  color: black;
-}
-.grupotitulo {
-  display: flex;
-  justify-content: space-between;
-}
-.universidad {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: black;
-}
-
-.sombrero {
-  width: 150px;
-  height: 150px;
-  background-color: #85ffbd;
-  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
-  position: relative;
-  right: 80px;
-  border-radius: 50%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.sombreron {
-  position: relative;
-  top: 15px;
-}
-.terceraparte {
-  position: absolute;
-  top: 833px;
-  background: rgb(245, 255, 199);
-  background: radial-gradient(
-    circle,
-    rgba(245, 255, 199, 1) 0%,
-    rgba(220, 222, 223, 1) 100%
-  );
-  width: 100%;
-  padding-top: 20px;
-  padding-left: 20px;
-  border-bottom: 2px solid black;
-}
-.certifadoBackground {
-  width: 150px;
-  height: 150px;
-  background-color: #85ffbd;
-  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
-  position: relative;
-  right: 80px;
-  border-radius: 50%;
-  background-color: #fbab7e;
-  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-.certificado {
-  position: relative;
-  top: 0px;
-}
-.cuartaparte {
-  position: absolute;
-  top: 1237px;
-  height: 750px;
-  background: rgb(220, 218, 255);
-  background: radial-gradient(
-    circle,
-    rgba(220, 218, 255, 1) 0%,
-    rgba(220, 222, 223, 1) 100%
-  );
-  width: 100%;
-  padding-top: 20px;
-  padding-left: 60px;
-  padding-right: 60px;
-  text-align: center;
-  border-bottom: 2px solid black;
-}
-.sliderImageContacto {
-  width: auto;
-  height: auto;
-  margin-top: 30px;
+.profileDesign {
+  min-width: 200px;
+  min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.carouselcontactoimage {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100%; /* Ensure the container takes the full height */
+
+.backgrounProfileImage {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: url("../app/perfil.jpg");
+  background-size: cover;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-position: center;
 }
-.imageTituloContacto {
+
+.backgrounProfileImage:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+}
+
+.luisromero {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+}
+
+.acerdemi {
+  color: #222;
+  font-size: 1.15rem;
+  margin-top: 1.2rem;
+  line-height: 1.7;
+  width: 90%;
+}
+
+.tituloCarrera {
+  font-size: 1.3rem;
+  color: #3b3b3b;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .primeraparte {
+    padding: 1.5rem 0.5rem;
+    margin-top: 70px;
+  }
+  .glassCard {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    align-items: center;
+  }
+  .profileDesign {
+    min-width: 120px;
+    min-height: 120px;
+  }
+  .backgrounProfileImage {
+    width: 110px;
+    height: 110px;
+  }
+  .luisromero {
+    font-size: 2rem;
+    text-align: left;
+  }
+  .acerdemi {
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+.segundaparte,
+.terceraparte {
+  margin-top: 2.5rem;
+  padding: 2.5rem 2rem;
+  background: #f4f7fa;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.segundapartetitulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+}
+
+.grupotitulo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.universidad {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(30, 34, 90, 0.1);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.2rem;
+  min-width: 220px;
+  max-width: 340px;
+  width: 100%;
+  font-size: 1.08rem;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border-left: 5px solid #1a237e;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.universidad:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+  border-left: 5px solid #0070f3;
+}
+
+.sombrero,
+.certifadoBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e3e9ff 0%, #f8f8f8 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(30, 34, 90, 0.08);
+  padding: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.sombreron,
+.certificado {
+  filter: drop-shadow(0 2px 8px rgba(30, 34, 90, 0.1));
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .segundaparte,
+  .terceraparte {
+    padding: 1.2rem 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .segundapartetitulo {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .grupotitulo {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .universidad {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem 0.7rem;
+    font-size: 1rem;
+  }
+  .sombrero,
+  .certifadoBackground {
+    padding: 0.7rem;
+    margin-top: 0.7rem;
+  }
+}
+
+.cuartaparte {
+  margin-top: 2.5rem;
+  padding: 2.5rem 2rem;
+  background: #f8f8f8;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sliderImageContacto {
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
 }
-.quintaparte {
-  padding-top: 20px;
-  position: absolute;
-  top: 1987px;
-  background: rgb(200, 255, 216);
-  background: radial-gradient(
-    circle,
-    rgba(200, 255, 216, 1) 0%,
-    rgba(220, 222, 223, 1) 100%
-  );
-  width: 100%;
-  padding-left: 20px;
-  height: 600px;
-  border-bottom: 2px solid black;
+
+.carouselcontactoimage {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
 }
-.tituloUniversidad {
-  text-align: justify;
-}
-.proyectoSlider {
-  width: 600px;
-  margin-right: 10px;
-}
+
 .imageTituloContacto {
-  border: 6px solid white;
-}
-.sextaparte {
-  padding-top: 20px;
-  position: absolute;
-  top: 2590px;
-  background: rgb(255, 230, 200);
-  background: radial-gradient(
-    circle,
-    rgba(255, 230, 200, 1) 0%,
-    rgba(220, 222, 223, 1) 100%
-  );
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(60, 60, 120, 0.1);
+  object-fit: cover;
   width: 100%;
-  padding-left: 20px;
-  height: 620px;
-  border-bottom: 2px solid black;
+  max-width: 500px;
+  height: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.imageTituloContacto:hover {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cuartaparte {
+    padding: 1.2rem 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .sliderImageContacto {
+    max-width: 98vw;
+  }
+  .carouselcontactoimage {
+    height: 180px;
+  }
+  .imageTituloContacto {
+    height: 160px;
+    max-width: 98vw;
+  }
+}
+
+.quintaparte,
+.sextaparte {
+  margin-top: 2.5rem;
+  padding: 2.5rem 2rem;
+  background: #f8f8f8;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.proyectoSlider {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.universidadParte {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.2rem;
+  min-width: 220px;
+  max-width: 400px;
+  width: 100%;
+  font-size: 1.1rem;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.tituloUniversidad {
+  font-size: 1rem;
+  color: #444;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .quintaparte,
+  .sextaparte {
+    padding: 1.2rem 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .proyectoSlider {
+    max-width: 98vw;
+  }
+  .universidadParte {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem 0.7rem;
+    font-size: 1rem;
+  }
+  .tituloUniversidad {
+    font-size: 0.95rem;
+  }
+}
+
 .septimaParte {
   display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 3210px;
-  width: 100%;
-  height: 500px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin: 2.5rem 0;
+  padding: 2.5rem 2rem;
+  background: #f4f7fa;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
-.blandas {
-  width: 50%;
-  padding-left: 20px;
-  padding-top: 20px;
-  font-size: 15px;
-  border-right: 2px solid black;
-  position: relative;
-}
+
+.blandas,
 .duras {
-  width: 50%;
-  font-size: 15px;
-  padding-top: 20px;
-  padding-left: 20px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 260px;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
+
+.blandas h2,
+.duras h2 {
+  color: #1a237e;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.blandas li,
+.duras li {
+  color: #333;
+  font-size: 1.08rem;
+  margin-bottom: 0.5rem;
+  list-style: disc inside;
+  text-align: left;
+  width: 100%;
+}
+
 .puzzle {
-  position: absolute;
-  right: 30px;
-  top: 30px;
+  margin-top: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 60, 120, 0.1);
+  background: #f8f8f8;
+  max-width: 90%;
+  height: auto;
 }
+
 .octavaparte {
-  position: absolute;
-  top: 3710px;
-  background: black;
-  width: 100%;
-  height: 80px;
-  color: white;
+  margin-top: 2.5rem;
+  padding: 1.2rem 0;
+  background: #ececec;
+  color: black;
   text-align: center;
-  padding-top: 30px;
+  font-size: 1.1rem;
+  border-radius: 24px;
+  letter-spacing: 1px;
+  border: 1px solid lightgray;
 }
-.contacto {
-  position: absolute;
-  top: 120px;
-  font-size: 30px;
-  padding-left: 20px;
-  width: 100%;
-}
-.SliderContacto {
-  width: 100%;
-  position: absolute;
-  top: 300px;
-}
-.imageSliderContacto {
-  margin: 45px auto;
-}
-.Contactoparte {
-  position: absolute;
-  top: 1200px;
-  background: black;
-  width: 100%;
-  height: 80px;
-  color: white;
-  text-align: center;
-  padding-top: 30px;
+
+/* Responsive */
+@media (max-width: 900px) {
+  .septimaParte {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem 0.5rem;
+    margin: 1.2rem 0;
+  }
+  .blandas,
+  .duras {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1rem 0.7rem 0.7rem 0.7rem;
+    font-size: 1rem;
+  }
+  .puzzle {
+    max-width: 100%;
+  }
+  .octavaparte {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    margin-top: 1.2rem;
+    border-radius: 0 0 12px 12px;
+  }
 }

@@ -12,6 +12,7 @@ export default function contacto() {
   const [color, setColor] = useState(false);
   const [images, setImages] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setImages(["/cartaRecomendacion1.png", "/cartaRecomendacion2.png"]);
@@ -58,26 +59,36 @@ export default function contacto() {
 
   return (
     <div>
-      <div className="">
-        <div>
-          <div className={color ? styles.navbarScroll : styles.navbar}>
-            <Link href="/">
-              <>
-                <div className={styles.briefCaseIcon}>
-                  <b>Luis Ernesto Romero</b>
-                </div>
-              </>
+      <div>
+        <div className={color ? styles.navbarScroll : styles.navbar}>
+          <Link href="/">
+            <div className={styles.briefCaseIcon}>
+              <b>Luis Ernesto Romero</b>
+            </div>
+          </Link>
+
+          {/* Botón hamburguesa */}
+          <div
+            className={styles.menuIcon}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+          </div>
+
+          {/* Menú de navegación */}
+          <div
+            className={`${styles.navbarlist} ${
+              menuOpen ? styles.showMenu : styles.hideMenu
+            }`}
+          >
+            <a href="/" className={styles.navbarlisttag}>
+              Perfil
+            </a>
+            <Link href="/contacto" className={styles.navbarlisttag}>
+              Contacto
             </Link>
-            <>
-              <div className={styles.navbarlist}>
-                <a href="/" className={styles.navbarlisttag}>
-                  Perfil
-                </a>
-                <Link href="/contacto" className={styles.navbarlisttag}>
-                  Contacto
-                </Link>
-              </div>
-            </>
           </div>
         </div>
       </div>
