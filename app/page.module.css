@@ -505,3 +505,124 @@
     border-radius: 0 0 12px 12px;
   }
 }
+
+/* CONTACTO Responsive */
+.contacto {
+  max-width: 700px;
+  margin: 120px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.SliderContacto {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f8f8f8;
+  border-radius: 16px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.imageSliderContacto {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+}
+
+.Contactoparte {
+  margin-top: 2.5rem;
+  padding: 1.2rem 0;
+  background: #ececec;
+  color: black;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 24px;
+  letter-spacing: 1px;
+  border: 1px solid lightgray;
+}
+
+@media (max-width: 900px) {
+  .contacto {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem;
+    margin-top: 90px;
+  }
+  .SliderContacto {
+    max-width: 98vw;
+    padding: 0.7rem 0.2rem;
+  }
+  .imageSliderContacto {
+    height: 160px;
+    max-width: 98vw;
+  }
+  .Contactoparte {
+    font-size: 1rem;
+    padding: 0.7rem 0;
+    margin-top: 1.2rem;
+  }
+}
+
+.cartasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  width: 100%;
+  justify-items: center;
+  margin-top: 1rem;
+}
+
+.cartaItem {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .cartasGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .cartaItem {
+    max-width: 98vw;
+  }
+}
+
+.cartaSliderItem {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 400px;
+}
+
+.imageSliderCartaGrande {
+  width: 100%;
+  max-width: 700px;
+  height: 420px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(60, 60, 120, 0.13);
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .cartaSliderItem {
+    min-height: 220px;
+  }
+  .imageSliderCartaGrande {
+    height: 220px;
+    max-width: 98vw;
+  }
+}

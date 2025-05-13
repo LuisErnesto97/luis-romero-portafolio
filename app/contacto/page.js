@@ -103,10 +103,10 @@ export default function contacto() {
           <h2>Cartas de recomendación</h2>
           <Slider {...settings}>
             {images.map((image, index) => (
-              <div key={index}>
+              <div key={index} className={styles.cartaSliderItem}>
                 <img
                   src={image}
-                  className={styles.imageSliderContacto}
+                  className={styles.imageSliderCartaGrande}
                   alt={`Imagen ${index + 1}`}
                 />
               </div>
